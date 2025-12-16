@@ -8,12 +8,21 @@ const app = express() ;
 
 // CORS Configuration for deployment
 const corsOptions = {
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    process.env.FRONTEND_URL,
-    'https://book-store-app-two-beryl.vercel.app'
-  ].filter(Boolean),
+  origin: function(origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'https://book-store-app-two-beryl.vercel.app',
+      process.env.FRONTEND_URL
+    ];
+    
+    // Allow requests from Vercel preview deployments
+    if (!origin || origin.includes('vercel.app') || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
