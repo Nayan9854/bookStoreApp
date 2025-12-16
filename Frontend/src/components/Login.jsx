@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form' ;
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../context/AuthProvider.jsx';
+import API_BASE_URL from '../config.js';
 
 function Login() {
   const [, setAuthUser] = useAuth();
@@ -18,7 +19,7 @@ function Login() {
        email: data.email,
        password: data.password
      }
-     await axios.post("http://localhost:4001/user/login", userInfo)
+     await axios.post(`${API_BASE_URL}/user/login`, userInfo)
       .then((res) => {
         console.log(res.data)
         if(res.data){

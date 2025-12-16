@@ -6,12 +6,14 @@ import Cards from './Cards';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config.js';
+
 function Freebook({ isDark }) {
   const [book , setBook] = useState([]) ;
     useEffect(() => {
       const getBook = async() => {
         try {
-          const res = await axios.get("http://localhost:4001/book") ;
+          const res = await axios.get(`${API_BASE_URL}/book`) ;
           console.log(res.data) ;
           const data = res.data.filter((data) => data.category === "Free") ;
           setBook(data) ;

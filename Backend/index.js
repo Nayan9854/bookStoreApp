@@ -5,10 +5,18 @@ import cors from 'cors' ;
 import bookRoute from './route/book.route.js' ;
 import userRoute from './route/user.route.js' ;
 const app = express() ;
-app.use(cors()) ;
+
+// CORS Configuration for deployment
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
 app.use(express.json()) ;
 dotenv.config() ;
-const PORT = process.env.PORT || 4000 ;
+const PORT = process.env.PORT || 4001 ;
 const URI = process.env.MongoDBURI ;
 //connect to mongodb
 try {
@@ -20,6 +28,12 @@ try {
 // defining routes
  app.use('/book', bookRoute) ;
   app.use('/user', userRoute) ;
+
+// Health check endpoint for deployment
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend is running' });
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`)
 }) ;
