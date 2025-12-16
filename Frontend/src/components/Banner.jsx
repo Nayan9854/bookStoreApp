@@ -28,7 +28,7 @@ function Banner({ isDark }) {
           </div>         
           </div>
           <button className="mt-6 px-6 py-3 bg-pink-500 text-white font-semibold rounded-lg hover:bg-pink-600 transition-colors">
-            Secondary
+            Get Started
           </button>
         </div> 
         {/* Keep image normal in both themes */}

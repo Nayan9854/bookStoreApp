@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Login from './Login';
-
+import Logout from './Logout.jsx';
+import { useAuth } from '../context/AuthProvider.jsx';
 
 function Navbar({ isDark, toggleTheme }) {
+  const [authUser, setAuthUser] = useAuth();
+
   const [sticky, setSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   
@@ -93,15 +96,22 @@ function Navbar({ isDark, toggleTheme }) {
             {isDark ? '☀️' : '🌙'}
           </button>
           
-          {/* Login Button */}
-          <button className="bg-black text-white px-3 py-2 rounded hover:bg-gray-800 whitespace-nowrap text-bold" 
-          onClick={() =>
-            document.getElementById('my_modal_3').showModal()   
-          }>
-            Login
-          </button>
-      
-        </div>
+
+            {/* Login Button */}
+
+          {authUser ? (
+            <Logout />
+          ) : (         
+            <button className="bg-black text-white px-3 py-2 rounded hover:bg-gray-800 whitespace-nowrap font-bold" 
+              onClick={() =>
+                document.getElementById('my_modal_3').showModal()   
+              }
+            >
+              Login
+            </button>
+          )}
+          </div>
+        
 
         {/* Mobile: Theme Toggle and Login Button - Right */}
         <div className="md:hidden flex items-center gap-2">

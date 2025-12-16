@@ -1,16 +1,46 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState , useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Login from './Login' ;
 import { useForm } from 'react-hook-form' ;
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { useAuth } from '../context/AuthProvider.jsx';
 
 function Signup({ isDark }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [, setAuthUser] = useAuth();
+  const from = location.state?.from?.pathname || "/";
    const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async(data) => {
+     const userInfo = {
+       fullname: data.fullname,
+       email: data.email,
+       password: data.password
+     }
+     await axios.post("http://localhost:4001/user/signup", userInfo)
+      .then((res) => {
+        console.log(res.data)
+        if(res.data){
+          toast.success('Signup Successful');
+          localStorage.setItem("Users", JSON.stringify(res.data.user));
+          setAuthUser(res.data.user);
+          navigate(from, { replace: true });
+        }  
+      })
+      .catch((err) => {
+        if(err.response){
+          console.log(err);
+          toast.error('Error: ' + err.response.data.message);
+        }
+      });
+         
+  } ;
 
   useEffect(() => {
     // Close login modal when signup page loads
@@ -29,7 +59,7 @@ function Signup({ isDark }) {
   return (
     <>
     <div className={`flex h-screen items-center justify-center ${isDark ? 'bg-slate-900' : 'bg-white'}`}>  
-    <div  className={`border-[2px] shadow-md p-5 rounded-md ${isDark ? 'bg-slate-900 text-white border-gray-600' : 'bg-white text-black border-gray-300'}`}>
+    <div  className={`border-2 shadow-md p-5 rounded-md ${isDark ? 'bg-slate-900 text-white border-gray-600' : 'bg-white text-black border-gray-300'}`}>
       <div className="modal-box">
         <div className='flex justify-between items-center mb-4'>
           <h3 className={`font-bold text-lg ${isDark ? 'text-white' : 'text-black'}`}>Signup</h3>
@@ -39,11 +69,11 @@ function Signup({ isDark }) {
         <form onSubmit={handleSubmit(onSubmit)}>
         {/* name Input */}
         <div className='mt-4 space-y-2'>
-          <span className={isDark ? 'text-gray-300' : 'text-gray-700'}>Name</span>
+          <span className={isDark ? 'text-gray-300' : 'text-gray-700'}>Full Name</span>
           <br />
-          <input type="text" placeholder="Enter your name" className={`w-80 px-3 py-1 border rounded-md outline-none ${isDark ? 'bg-slate-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'}`} {...register("name", { required: true })} />
+          <input type="text" placeholder="Enter your full name" className={`w-80 px-3 py-1 border rounded-md outline-none ${isDark ? 'bg-slate-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'}`} {...register("fullname", { required: true })} />
           <br />
-          {errors.name && <span className='text-sm text-red-500'>This field is required</span>}
+          {errors.fullname && <span className='text-sm text-red-500'>This field is required</span>}
         </div>
         {/* Email Input */}
         <div className='mt-4 space-y-2'>
