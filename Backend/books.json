@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab18"
+  },
+  "id": 1,
+  "name": "Story Book",
+  "title": "A Tale of Two Cities",
+  "price": 0,
+  "category": "Free",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab19"
+  },
+  "id": 2,
+  "name": "Sports Book",
+  "title": "A Tale of Two Cities",
+  "price": "0.00",
+  "category": "Free",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab1a"
+  },
+  "id": 3,
+  "name": "Food Book",
+  "title": "A Tale of Two Cities",
+  "price": 3,
+  "category": "Food",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab1b"
+  },
+  "id": 4,
+  "name": "Recipe Book",
+  "title": "A Tale of Two Cities",
+  "price": 35,
+  "category": "Recipe",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab1c"
+  },
+  "id": 5,
+  "name": "Coding Book",
+  "title": "A Tale of Two Cities",
+  "price": 100,
+  "category": "C++",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab1d"
+  },
+  "id": 6,
+  "name": "Zubeen Da ",
+  "title": "A Tale of Two Cities",
+  "price": 1,
+  "category": "Life",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab1e"
+  },
+  "id": 7,
+  "name": "Film Book",
+  "title": "A Tale of Two Cities",
+  "price": 5,
+  "category": "Movies",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab1f"
+  },
+  "id": 8,
+  "name": "Direction Book",
+  "title": "A Tale of Two Cities",
+  "price": 220,
+  "category": "Roads",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab20"
+  },
+  "id": 9,
+  "name": "Phone Number Book",
+  "title": "A Tale of Two Cities",
+  "price": 20,
+  "category": "Number",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+},
+{
+  "_id": {
+    "$oid": "693a8ea1b35466e68228ab21"
+  },
+  "id": 10,
+  "name": "Gym Book",
+  "title": "A Tale of Two Cities",
+  "price": 10,
+  "category": "Free",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDGN9ve8sPkIoVGQXxV31UxfYe8URbSc4bA&s"
+}]
